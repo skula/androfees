@@ -1,0 +1,85 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:id="@+id/layout_root"
+    android:layout_width="fill_parent"
+    android:layout_height="fill_parent"
+    android:orientation="vertical"
+    android:padding="10dp" >
+
+    <LinearLayout
+        xmlns:android="http://schemas.android.com/apk/res/android"
+        android:id="@+id/layout_root"
+        android:layout_width="fill_parent"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal" >
+
+        <TextView
+            android:layout_width="250px"
+            android:layout_height="wrap_content" android:textColor="#006fa4" 
+            android:text="Type de graphique : "
+            android:textAppearance="?android:attr/textAppearanceLarge" />
+
+        <Spinner
+            android:id="@+id/typeGraph"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center_horizontal"
+            android:entries="@array/type_graph_array"
+            android:prompt="@string/type_graph_prompt"
+            android:textColor="#6a6a6a" />
+    </LinearLayout>
+
+    <LinearLayout
+        xmlns:android="http://schemas.android.com/apk/res/android"
+        android:id="@+id/layout_root"
+        android:layout_width="fill_parent"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal" >
+
+        <TextView
+            android:layout_width="250px" android:textColor="#006fa4" 
+            android:layout_height="wrap_content"
+            android:text="Période : "
+            android:textAppearance="?android:attr/textAppearanceLarge" />
+
+        <EditText
+            android:id="@+id/countPeriod" android:layout_width="60px"
+         
+            android:layout_height="wrap_content"
+            android:singleLine="true"
+            android:textColor="#6a6a6a" />
+
+        <Spinner
+            android:id="@+id/typePeriod"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center_horizontal"
+            android:entries="@array/time_unit_array"
+            android:prompt="@string/time_unit_prompt"
+            android:textColor="#6a6a6a" />
+    </LinearLayout>
+
+    <LinearLayout
+        xmlns:android="http://schemas.android.com/apk/res/android"
+        android:id="@+id/layout_root"
+        android:layout_width="fill_parent"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal" >
+
+        <TextView
+            android:layout_width="250px" android:textColor="#006fa4" 
+            android:layout_height="wrap_content"
+            android:text="Indicateur : "
+            android:textAppearance="?android:attr/textAppearanceLarge" />
+
+        <Spinner
+            android:id="@+id/timeUnit"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center_horizontal"
+            android:entries="@array/time_unit_array"
+            android:prompt="@string/time_unit_prompt"
+            android:textColor="#6a6a6a" />
+    </LinearLayout>
+
+</LinearLayout>
