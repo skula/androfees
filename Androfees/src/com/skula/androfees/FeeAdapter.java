@@ -41,7 +41,7 @@ public class FeeAdapter extends BaseAdapter {
 		item.put("id", fee.getId());
 		item.put("label", fee.getLabel());
 		item.put("date", fee.getDate());
-		item.put("amount", fee.getAmount());
+		item.put("amount", fee.getAmount().replaceAll("\\.",",") + "€");
 		item.put("location", fee.getLocation());
 		return item;
 	}

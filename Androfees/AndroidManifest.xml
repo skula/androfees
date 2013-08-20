@@ -24,6 +24,14 @@
             android:name=".GraphActivity"
             android:label="@string/title_activity_main" android:screenOrientation="landscape">
         </activity>
+        <activity
+            android:name=".StatsActivity"
+            android:label="@string/title_activity_main" android:screenOrientation="landscape">
+        </activity>
+        <activity
+            android:name=".PasswordActivity"
+            android:label="@string/title_activity_main" android:screenOrientation="portrait">
+        </activity>
     </application>
 
 </manifest>

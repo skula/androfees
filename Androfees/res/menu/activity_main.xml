@@ -3,4 +3,12 @@
         android:title="Graphiques"
         android:orderInCategory="100"
         android:showAsAction="never" />
+    <item android:id="@+id/menu_stats"
+        android:title="Statistiques"
+        android:orderInCategory="100"
+        android:showAsAction="never" />
+    <item android:id="@+id/menu_pw"
+        android:title="Mot de passe"
+        android:orderInCategory="100"
+        android:showAsAction="never" />
 </menu>

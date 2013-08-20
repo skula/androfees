@@ -295,7 +295,7 @@ public class MainActivity extends Activity {
 		NumberFormat numberFormat = NumberFormat.getInstance();
 		numberFormat.setMinimumFractionDigits(2);
 		TextView total = (TextView) findViewById(R.id.total);
-		total.setText("TOTAL: " + numberFormat.format(Double.valueOf(list.getAmount())) + " Euros");
+		total.setText("Total: " + numberFormat.format(Double.valueOf(list.getAmount())) + " €");
 	}
 
 	private void fillSpinners() {
@@ -319,6 +319,14 @@ public class MainActivity extends Activity {
 		switch (item.getItemId()) {
 		case R.id.menu_graph:
 			myIntent = new Intent(this, GraphActivity.class);
+			startActivityForResult(myIntent, 0);
+			return true;
+		case R.id.menu_stats:
+			myIntent = new Intent(this, StatsActivity.class);
+			startActivityForResult(myIntent, 0);
+			return true;
+		case R.id.menu_pw:
+			myIntent = new Intent(this, PasswordActivity.class);
 			startActivityForResult(myIntent, 0);
 			return true;
 		default:
