@@ -32,6 +32,10 @@
             android:name=".PasswordActivity"
             android:label="@string/title_activity_main" android:screenOrientation="portrait">
         </activity>
+        <activity
+            android:name=".FeeListActivity"
+            android:label="@string/title_activity_main" android:screenOrientation="portrait">
+        </activity>
     </application>
 
 </manifest>

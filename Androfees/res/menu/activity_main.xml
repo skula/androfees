@@ -11,4 +11,8 @@
         android:title="Mot de passe"
         android:orderInCategory="100"
         android:showAsAction="never" />
+    <item android:id="@+id/menu_list"
+        android:title="Liste"
+        android:orderInCategory="100"
+        android:showAsAction="never" />
 </menu>

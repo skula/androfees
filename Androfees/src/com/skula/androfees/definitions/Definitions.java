@@ -3,6 +3,9 @@ package com.skula.androfees.definitions;
 import java.util.Calendar;
 
 public class Definitions {
+	public final static int MODE_MOD = 1;
+	public final static int MODE_CRE = 2;
+	
 	public final static String TIME_UNIT_DAY_LABEL = "Jour";
 	public final static String TIME_UNIT_MONTH_LABEL = "Mois";
 	public final static String TIME_UNIT_YEAR_LABEL = "Année";

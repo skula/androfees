@@ -51,7 +51,7 @@ public class DatabaseService {
 		insertCategory("Divers");
 		insertCategory("Courses");
 		insertCategory("Sorties");
-		insertFee(new Fee("", "Soirée bidule", "28.42", "Divers", "27/10/2012", "Simply"));
+		insertFee(new Fee("", "Soirée biduleaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa", "9999.42", "Divers", "27/10/2012", "Simply"));
 		insertFee(new Fee("", "Soirée bidule", "28.42", "Divers", "27/10/2012", "Simply"));
 		
 		insertFee(new Fee("", "Soirée bidule", "28.42", "Courses", "28/10/2012", "Simply"));

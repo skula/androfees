@@ -9,15 +9,16 @@
         android:layout_height="wrap_content"
         android:text="Saisissez votre code secret."
         android:textSize="16sp"
-        android:textStyle="bold" />
+        android:textStyle="bold" 
+		android:textColor="#006fa4"/>
 
     <TextView
-        android:id="@+id/error"
+        android:id="@+id/pwError"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="Code secret incorrecte."
         android:textSize="16sp"
-        android:textStyle="bold" />
+        android:textStyle="bold" 
+		android:textColor="#ff0000"/>
 
     <LinearLayout
         android:layout_width="fill_parent"
@@ -146,7 +147,7 @@
             android:text="0" />
 
         <Button
-            android:id="@+id/btnPwSuppr"
+            android:id="@+id/btnPwDel"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:text="Del" />

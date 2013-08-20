@@ -279,7 +279,7 @@ public class MainActivity extends Activity {
 		update();
 	}
 
-	private void update() {
+	public void update() {
 		// update list
 		String dateFrom = CalendarUtils.getFirstDay(month, year);
 		String dateTo = CalendarUtils.getLastDay(month, year);
@@ -295,7 +295,7 @@ public class MainActivity extends Activity {
 		NumberFormat numberFormat = NumberFormat.getInstance();
 		numberFormat.setMinimumFractionDigits(2);
 		TextView total = (TextView) findViewById(R.id.total);
-		total.setText("Total: " + numberFormat.format(Double.valueOf(list.getAmount())) + " €");
+		total.setText("Total: " + numberFormat.format(Double.valueOf(list.getAmount())) + "€");
 	}
 
 	private void fillSpinners() {
@@ -327,6 +327,10 @@ public class MainActivity extends Activity {
 			return true;
 		case R.id.menu_pw:
 			myIntent = new Intent(this, PasswordActivity.class);
+			startActivityForResult(myIntent, 0);
+			return true;
+		case R.id.menu_list:
+			myIntent = new Intent(this, FeeListActivity.class);
 			startActivityForResult(myIntent, 0);
 			return true;
 		default:
