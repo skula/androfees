@@ -1,6 +1,7 @@
 package com.skula.androfees;
 
 import android.app.Activity;
+import android.content.Intent;
 import android.os.Bundle;
 import android.view.View;
 import android.view.View.OnClickListener;
@@ -115,7 +116,7 @@ public class PasswordActivity extends Activity implements OnClickListener {
 
 		if (number > 4) {
 			if (passwd.equals(getEntry())) {
-				pwError.setText("YOUHOU.");
+				startActivityForResult(new Intent(this, FeeListActivity.class), 0);
 			} else {
 				pwError.setText("Code secret incorrecte.");
 				number = 1;

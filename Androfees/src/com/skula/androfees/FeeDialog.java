@@ -1,13 +1,17 @@
 package com.skula.androfees;
 
+import java.util.List;
+
 import android.app.AlertDialog;
 import android.app.Dialog;
 import android.content.Context;
 import android.content.DialogInterface;
 import android.view.View;
 import android.view.Window;
+import android.widget.ArrayAdapter;
 import android.widget.Button;
 import android.widget.EditText;
+import android.widget.Spinner;
 
 import com.skula.androfees.definitions.Definitions;
 import com.skula.androfees.models.Fee;
@@ -22,16 +26,17 @@ public class FeeDialog extends Dialog {
 	private EditText amountTxt;
 	private EditText dateTxt;
 	private EditText locationTxt;
+	private Spinner categorySpn;
 	
 	private int mode;
-	private int idItem;
+	private String idItem;
 	private DatabaseService dbService;
+	private List<String> catlist;
 
 	public FeeDialog(final Context context,
-			final FeeListActivity mainActivity, int mode, int idItem) {
+			final FeeListActivity mainActivity, int mode, String idItem) {
 		super(context);
 		this.setContentView(R.layout.fee_dialog_layout);
-		//requestWindowFeature(Window.FEATURE_NO_TITLE);
 		
 		this.mode = mode;
 		this.idItem = idItem;
@@ -45,24 +50,26 @@ public class FeeDialog extends Dialog {
 		this.amountTxt = (EditText) findViewById(R.id.fee_dial_amount);
 		this.dateTxt = (EditText) findViewById(R.id.fee_dial_date);
 		this.locationTxt = (EditText) findViewById(R.id.fee_dial_location);
-
-		/*this.catlist = dbService.getCategoriesLabel();
+		this.categorySpn = (Spinner) findViewById(R.id.fee_dial_category);
+		
+		this.catlist = dbService.getCategoriesLabel();
 		ArrayAdapter<String> adapter = new ArrayAdapter<String>(
 				this.getContext(), android.R.layout.simple_spinner_item,
 				catlist);
 		adapter.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item);
-		categorySpn.setAdapter(adapter);*/		
+		categorySpn.setAdapter(adapter);	
 
 		if (mode == Definitions.MODE_MOD) {
-			setTitle("Modification de l'article");
+			setTitle("Modification de la dépense");
 			
 			Fee fee = dbService.getFee(idItem);
 			labelTxt.setText(fee.getLabel());
 			amountTxt.setText(fee.getAmount());
 			dateTxt.setText(fee.getDate());
 			locationTxt.setText(fee.getLocation());
+			categorySpn.setSelection(catlist.indexOf(fee.getCategory()));
 		} else {
-			setTitle("Ajout d'un article");
+			setTitle("Ajout d'une dépense");
 		}
 		
 		btn1.setOnClickListener(new View.OnClickListener() {
@@ -71,7 +78,7 @@ public class FeeDialog extends Dialog {
 					insert();
 					mainActivity.update();
 				} else {
-					//handleUpdate(context, mainActivity);
+					handleUpdate(context, mainActivity);
 				}
 				dismiss();
 			}
@@ -79,7 +86,7 @@ public class FeeDialog extends Dialog {
 
 		btn2.setOnClickListener(new View.OnClickListener() {
 			public void onClick(View v) {
-				//handleDelete(context, mainActivity);
+				handleDelete(context, mainActivity);
 				dismiss();
 			}
 		});
@@ -93,11 +100,11 @@ public class FeeDialog extends Dialog {
 		handleMode();
 	}
 
-	private void handleDelete(Context ctx, final MainActivity mainActivity) {
+	private void handleDelete(Context ctx, final FeeListActivity mainActivity) {
 		AlertDialog.Builder helpBuilder = new AlertDialog.Builder(ctx);
 		helpBuilder.setTitle("Confirmation");
 		helpBuilder
-				.setMessage("Etes-vous sûr de vouloir supprimer cet élément ?");
+				.setMessage("Etes-vous sûr de vouloir supprimer cette dépense ?");
 		final Context tmpCtx = ctx;
 		helpBuilder.setPositiveButton("Oui",
 				new DialogInterface.OnClickListener() {
@@ -115,11 +122,11 @@ public class FeeDialog extends Dialog {
 		helpDialog.show();
 	}
 
-	private void handleUpdate(Context ctx, final MainActivity mainActivity) {
+	private void handleUpdate(Context ctx, final FeeListActivity mainActivity) {
 		AlertDialog.Builder helpBuilder = new AlertDialog.Builder(ctx);
 		helpBuilder.setTitle("Confirmation");
 		helpBuilder
-				.setMessage("Etes-vous sûr de vouloir modifier cet élément ?");
+				.setMessage("Etes-vous sûr de vouloir modifier cette dépense ?");
 		final Context tmpCtx = ctx;
 		helpBuilder.setPositiveButton("Oui",
 				new DialogInterface.OnClickListener() {
@@ -159,20 +166,28 @@ public class FeeDialog extends Dialog {
 		}
 	}
 	
-	public void insert() {
-		/*String cat = ((String) categorySpn.getSelectedItem());
-		dbService.insertArticle(idParent, labelTxt.getText().toString(),
-				quantityTxt.getText().toString(), cat);*/
+	private void insert() {
+		Fee fee = new Fee();
+		fee.setLabel(labelTxt.getText().toString());
+		fee.setDate(dateTxt.getText().toString());
+		fee.setAmount(amountTxt.getText().toString());
+		fee.setLocation(locationTxt.getText().toString());
+		fee.setCategory((String) categorySpn.getSelectedItem());
+		dbService.insertFee(fee);
 	}
 
-	public void update() {
-		/*String cat = ((String) categorySpn.getSelectedItem());
-		dbService.updateArticle(idItem, labelTxt.getText().toString(),
-				quantityTxt.getText().toString(), cat);*/
+	private void update() {
+		Fee fee = new Fee();
+		fee.setLabel(labelTxt.getText().toString());
+		fee.setDate(dateTxt.getText().toString());
+		fee.setAmount(amountTxt.getText().toString());
+		fee.setLocation(locationTxt.getText().toString());
+		fee.setCategory((String) categorySpn.getSelectedItem());
+		dbService.updateFee(idItem, fee);
 	}
 
-	public void delete() {
-		//dbService.deleteArticle(idItem);
+	private void delete() {
+		dbService.deleteFee(idItem);
 	}
 
 	public int getMode() {

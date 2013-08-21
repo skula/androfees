@@ -103,13 +103,13 @@ public class DatabaseService {
 		database.delete(TABLE_NAME_FEE, "id=" + id, null);
 	}
 
-	public Fee getFee(int id) {
+	public Fee getFee(String id) {
 		Cursor cursor = database.query(TABLE_NAME_FEE, new String[] { "label", "amount", "idcategory", "location", "dateinsr" }, "id=" + id, null,
 				null, null, null);
 		if (cursor.moveToFirst()) {
 			do {
 				Fee fee = new Fee();
-				fee.setId(id + "");
+				fee.setId(id);
 				fee.setLabel(cursor.getString(0));
 				fee.setAmount(cursor.getString(1));
 				fee.setCategory(getCategoryLabel(cursor.getInt(2)));

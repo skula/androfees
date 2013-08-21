@@ -74,7 +74,7 @@ public class FeeListActivity extends Activity {
 			@Override
 			public boolean onItemLongClick(AdapterView<?> a, View v, int position, long id2) {
 				FeeDialog feeDial = new FeeDialog(v.getContext(), ma,
-							Definitions.MODE_MOD, 1);
+							Definitions.MODE_MOD, "1");
 				feeDial.show();
 				return true;
 			}
@@ -129,7 +129,7 @@ public class FeeListActivity extends Activity {
 	
 	@Override
 	public boolean onCreateOptionsMenu(Menu menu) {
-		getMenuInflater().inflate(R.menu.activity_main, menu);
+		getMenuInflater().inflate(R.menu.list_activity, menu);
 		return true;
 	}
 	
@@ -142,10 +142,6 @@ public class FeeListActivity extends Activity {
 			return true;
 		case R.id.menu_stats:
 			myIntent = new Intent(this, StatsActivity.class);
-			startActivityForResult(myIntent, 0);
-			return true;
-		case R.id.menu_pw:
-			myIntent = new Intent(this, PasswordActivity.class);
 			startActivityForResult(myIntent, 0);
 			return true;
 		default:

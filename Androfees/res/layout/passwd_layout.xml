@@ -7,149 +7,156 @@
     <TextView
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
+        android:layout_gravity="center_horizontal"
         android:text="Saisissez votre code secret."
+        android:textColor="#006fa4"
         android:textSize="16sp"
-        android:textStyle="bold" 
-		android:textColor="#006fa4"/>
+        android:textStyle="bold" />
 
     <TextView
         android:id="@+id/pwError"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
+        android:gravity="center_horizontal"
+        android:textColor="#ff0000"
         android:textSize="16sp"
-        android:textStyle="bold" 
-		android:textColor="#ff0000"/>
+        android:textStyle="bold" />
 
     <LinearLayout
         android:layout_width="fill_parent"
         android:layout_height="wrap_content"
+        android:gravity="center_horizontal"
         android:orientation="horizontal" >
 
         <EditText
             android:id="@+id/valPw1"
-            android:layout_width="wrap_content"
+            android:layout_width="100px"
             android:layout_height="wrap_content"
-            android:textSize="16sp"
-            android:textStyle="bold" 
-            android:editable="false"/>
+            android:editable="false"
+            android:textSize="24sp"
+            android:gravity="center_horizontal"/>
 
         <EditText
             android:id="@+id/valPw2"
-            android:layout_width="wrap_content"
+            android:layout_width="100px"
             android:layout_height="wrap_content"
+            android:editable="false"
             android:textSize="16sp"
-            android:textStyle="bold" 
-            android:editable="false"/>
+            android:textStyle="bold" />
 
         <EditText
             android:id="@+id/valPw3"
-            android:layout_width="wrap_content"
+            android:layout_width="100px"
             android:layout_height="wrap_content"
+            android:editable="false"
             android:textSize="16sp"
-            android:textStyle="bold" 
-            android:editable="false"/>
+            android:textStyle="bold" />
 
         <EditText
             android:id="@+id/valPw4"
-            android:layout_width="wrap_content"
+            android:layout_width="100px"
             android:layout_height="wrap_content"
+            android:editable="false"
             android:textSize="16sp"
-            android:textStyle="bold" 
-            android:editable="false"/>
+            android:textStyle="bold" />
     </LinearLayout>
 
     <LinearLayout
         android:layout_width="fill_parent"
         android:layout_height="wrap_content"
+        android:gravity="center_horizontal"
         android:orientation="horizontal" >
 
         <Button
             android:id="@+id/btnPw1"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
+            android:layout_width="100px"
+            android:layout_height="80px"
             android:text="1" />
 
         <Button
             android:id="@+id/btnPw2"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
+            android:layout_width="100px"
+            android:layout_height="80px"
             android:text="2" />
 
         <Button
             android:id="@+id/btnPw3"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
+            android:layout_width="100px"
+            android:layout_height="80px"
             android:text="3" />
     </LinearLayout>
-    
+
     <LinearLayout
         android:layout_width="fill_parent"
         android:layout_height="wrap_content"
+        android:gravity="center_horizontal"
         android:orientation="horizontal" >
 
         <Button
             android:id="@+id/btnPw4"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
+            android:layout_width="100px"
+            android:layout_height="80px"
             android:text="4" />
 
         <Button
             android:id="@+id/btnPw5"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
+            android:layout_width="100px"
+            android:layout_height="80px"
             android:text="5" />
 
         <Button
             android:id="@+id/btnPw6"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
+            android:layout_width="100px"
+            android:layout_height="80px"
             android:text="6" />
     </LinearLayout>
-    
+
     <LinearLayout
         android:layout_width="fill_parent"
         android:layout_height="wrap_content"
+        android:gravity="center_horizontal"
         android:orientation="horizontal" >
 
         <Button
             android:id="@+id/btnPw7"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
+            android:layout_width="100px"
+            android:layout_height="80px"
             android:text="7" />
 
         <Button
             android:id="@+id/btnPw8"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
+            android:layout_width="100px"
+            android:layout_height="80px"
             android:text="8" />
 
         <Button
             android:id="@+id/btnPw9"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
+            android:layout_width="100px"
+            android:layout_height="80px"
             android:text="9" />
     </LinearLayout>
-    
+
     <LinearLayout
         android:layout_width="fill_parent"
         android:layout_height="wrap_content"
+        android:gravity="center_horizontal"
         android:orientation="horizontal" >
 
         <Button
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
+            android:layout_width="100px"
+            android:layout_height="80px"
             android:enabled="false" />
 
         <Button
             android:id="@+id/btnPw0"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
+            android:layout_width="100px"
+            android:layout_height="80px"
             android:text="0" />
 
         <Button
             android:id="@+id/btnPwDel"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
+            android:layout_width="100px"
+            android:layout_height="80px"
             android:text="Del" />
     </LinearLayout>
 
