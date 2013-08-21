@@ -1,0 +1,18 @@
+<menu xmlns:android="http://schemas.android.com/apk/res/android">
+    <item android:id="@+id/menu_graph"
+        android:title="Graphiques"
+        android:orderInCategory="100"
+        android:showAsAction="never" />
+    <item android:id="@+id/menu_stats"
+        android:title="Statistiques"
+        android:orderInCategory="100"
+        android:showAsAction="never" />
+    <item android:id="@+id/menu_pw"
+        android:title="Mot de passe"
+        android:orderInCategory="100"
+        android:showAsAction="never" />
+    <item android:id="@+id/menu_list"
+        android:title="Liste"
+        android:orderInCategory="100"
+        android:showAsAction="never" />
+</menu>
