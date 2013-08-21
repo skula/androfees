@@ -1,0 +1,44 @@
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="fill_parent"
+    android:layout_height="wrap_content"
+    android:orientation="vertical" >
+
+    <LinearLayout
+        android:layout_width="fill_parent"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal" >
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Libellé" />
+
+        <EditText
+            android:id="@+id/cat_dial_label"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content" />
+    </LinearLayout>
+
+    <LinearLayout
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content" >
+
+        <Button
+            android:id="@+id/cat_dial_btn1"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content" >
+        </Button>
+
+        <Button
+            android:id="@+id/cat_dial_btn2"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content" >
+        </Button>
+
+        <Button
+            android:id="@+id/cat_dial_btn3"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content" >
+        </Button>
+    </LinearLayout>
+</LinearLayout>

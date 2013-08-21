@@ -2,12 +2,12 @@
 
 <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
     android:layout_width="fill_parent"
-    android:layout_height="fill_parent" >
+    android:layout_height="wrap_content" >
 
     <ScrollView
         android:id="@+id/ScrollView11"
         android:layout_width="fill_parent"
-        android:layout_height="fill_parent"
+        android:layout_height="wrap_content"
         android:fillViewport="true" >
 
         <LinearLayout
@@ -17,7 +17,7 @@
             <TableLayout
                 android:id="@+id/table"
                 android:layout_width="fill_parent"
-                android:layout_height="fill_parent" />
+                android:layout_height="wrap_content" />
         </LinearLayout>
     </ScrollView>
 

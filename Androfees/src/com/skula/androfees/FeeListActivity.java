@@ -37,7 +37,7 @@ public class FeeListActivity extends Activity {
 	private int month;
 	private int year;
 	private DatabaseService dbService;
-	//private Button btnAdd;
+	private TextView btnAdd;
 
 	@Override
 	public void onCreate(Bundle icicle) {
@@ -80,12 +80,14 @@ public class FeeListActivity extends Activity {
 			}
 		});
 		
-		/*this.btnAdd = (Button) findViewById(R.id.btnAdd);
+		this.btnAdd = (TextView) findViewById(R.id.list_btnAdd);
 		btnAdd.setOnClickListener(new View.OnClickListener() {
 			public void onClick(View v) {
-				
+				FeeDialog feeDial = new FeeDialog(v.getContext(), ma,
+						Definitions.MODE_CRE, null);
+				feeDial.show();
 			}
-		});*/
+		});
 		
 		update();
 	}
@@ -124,7 +126,7 @@ public class FeeListActivity extends Activity {
 		NumberFormat numberFormat = NumberFormat.getInstance();
 		numberFormat.setMinimumFractionDigits(2);
 		TextView total = (TextView) findViewById(R.id.list_total);
-		total.setText("Total: " + numberFormat.format(Double.valueOf(list.getAmount())) + " €");
+		total.setText("TOTAL : " + numberFormat.format(Double.valueOf(list.getAmount())) + " €");
 	}
 	
 	@Override
@@ -136,6 +138,10 @@ public class FeeListActivity extends Activity {
 	public boolean onOptionsItemSelected(MenuItem item) {
 		Intent myIntent = null;
 		switch (item.getItemId()) {
+		case R.id.menu_categories:
+			myIntent = new Intent(this, CategoriesActivity.class);
+			startActivityForResult(myIntent, 0);
+			return true;
 		case R.id.menu_graph:
 			myIntent = new Intent(this, GraphActivity.class);
 			startActivityForResult(myIntent, 0);

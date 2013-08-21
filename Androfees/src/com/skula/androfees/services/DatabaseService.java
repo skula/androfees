@@ -185,10 +185,10 @@ public class DatabaseService {
 		statement.executeInsert();
 	}
 
-	public void updateCategory(int id, String newLabel) {
+	public void updateCategory(String oldLabel, String newLabel) {
 		ContentValues args = new ContentValues();
 		args.put("label", newLabel);
-		database.update(TABLE_NAME_CATEGORY, args, "id=" + id, null);
+		database.update(TABLE_NAME_CATEGORY, args, "label='" + oldLabel + "'", null);
 	}
 
 	public void deleteCategory(String label) {
@@ -239,6 +239,23 @@ public class DatabaseService {
 				category.setId(cursor.getInt(0));
 				category.setLabel(cursor.getString(1));
 				list.add(category);
+			} while (cursor.moveToNext());
+		}
+		if (cursor != null && !cursor.isClosed()) {
+			cursor.close();
+		}
+		return list;
+	}
+	
+	public List<Map<String, String>> getCategoriesMap() {
+		List<Map<String, String>> list = new ArrayList<Map<String, String>>();
+		Cursor cursor = database.query(TABLE_NAME_CATEGORY, new String[] { "id", "label" }, null, null, null, null, "label asc");
+		if (cursor.moveToFirst()) {
+			do {
+				Map<String, String> map = new HashMap<String, String>();
+				map.put("id",cursor.getString(0));
+				map.put("label",cursor.getString(1));
+				list.add(map);
 			} while (cursor.moveToNext());
 		}
 		if (cursor != null && !cursor.isClosed()) {
