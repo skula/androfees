@@ -9,13 +9,15 @@
         android:orientation="horizontal" >
 
         <TextView
-            android:layout_width="wrap_content"
+            android:layout_width="200px"
             android:layout_height="wrap_content"
-            android:text="Libellé" />
+            android:layout_marginLeft="10px"
+            android:text="Libellé:"
+            android:textSize="20sp" />
 
         <EditText
             android:id="@+id/fee_dial_label"
-            android:layout_width="wrap_content"
+            android:layout_width="550px"
             android:layout_height="wrap_content" />
     </LinearLayout>
 
@@ -25,14 +27,16 @@
         android:orientation="horizontal" >
 
         <TextView
-            android:layout_width="wrap_content"
+            android:layout_width="200px"
             android:layout_height="wrap_content"
-            android:text="Date" />
+            android:layout_marginLeft="10px"
+            android:text="Date:"
+            android:textSize="20sp" />
 
         <EditText
             android:id="@+id/fee_dial_date"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content" />
+            android:layout_width="550px"
+            android:layout_height="wrap_content"/>
     </LinearLayout>
 
     <LinearLayout
@@ -41,68 +45,83 @@
         android:orientation="horizontal" >
 
         <TextView
-            android:layout_width="wrap_content"
+            android:layout_width="200px"
             android:layout_height="wrap_content"
-            android:text="Montant" />
+            android:layout_marginLeft="10px"
+            android:text="Montant:"
+            android:textSize="20sp" />
 
         <EditText
             android:id="@+id/fee_dial_amount"
-            android:layout_width="wrap_content"
+            android:layout_width="550px"
             android:layout_height="wrap_content" />
     </LinearLayout>
 
-	<LinearLayout
+    <LinearLayout
         android:layout_width="fill_parent"
         android:layout_height="wrap_content"
         android:orientation="horizontal" >
 
         <TextView
-            android:layout_width="wrap_content"
+            android:layout_width="200px"
             android:layout_height="wrap_content"
-            android:text="Catégorie" />
+            android:layout_marginLeft="10px"
+            android:text="Catégorie:"
+            android:textSize="20sp" />
 
         <Spinner
             android:id="@+id/fee_dial_category"
-            android:layout_width="wrap_content"
+            android:layout_width="550px"
             android:layout_height="wrap_content" />
     </LinearLayout>
-	
+
     <LinearLayout
         android:layout_width="fill_parent"
         android:layout_height="wrap_content"
         android:orientation="horizontal" >
 
         <TextView
-            android:layout_width="wrap_content"
+            android:layout_width="200px"
             android:layout_height="wrap_content"
-            android:text="Lieux" />
+            android:layout_marginLeft="10px"
+            android:text="Lieux:"
+            android:textSize="20sp" />
 
         <EditText
             android:id="@+id/fee_dial_location"
-            android:layout_width="wrap_content"
+            android:layout_width="550px"
             android:layout_height="wrap_content" />
     </LinearLayout>
 
     <LinearLayout
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content" >
+        android:layout_width="fill_parent"
+        android:layout_height="wrap_content"
+        android:gravity="center_horizontal" 
+        android:layout_marginTop="20px"
+        android:layout_marginBottom="20px">
 
         <Button
             android:id="@+id/fee_dial_btn1"
-            android:layout_width="wrap_content"
+            android:textSize="26px"
+            android:layout_width="200px"
             android:layout_height="wrap_content" >
         </Button>
 
         <Button
             android:id="@+id/fee_dial_btn2"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content" >
+            android:textSize="26px"
+            android:layout_width="200px"
+            android:layout_height="wrap_content" 
+            android:layout_marginLeft="20px">
         </Button>
 
         <Button
             android:id="@+id/fee_dial_btn3"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content" >
+            android:textSize="26px"
+            android:layout_width="200px"
+            android:layout_height="wrap_content" 
+            android:layout_marginLeft="20px">
         </Button>
     </LinearLayout>
+
 </LinearLayout>

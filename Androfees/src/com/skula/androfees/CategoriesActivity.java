@@ -1,10 +1,7 @@
 package com.skula.androfees;
 
 import android.app.Activity;
-import android.content.Intent;
 import android.os.Bundle;
-import android.view.Menu;
-import android.view.MenuItem;
 import android.view.View;
 import android.view.View.OnClickListener;
 import android.widget.AdapterView;
@@ -13,6 +10,7 @@ import android.widget.ListView;
 import android.widget.SimpleAdapter;
 import android.widget.TextView;
 
+import com.skula.androfees.definitions.Definitions;
 import com.skula.androfees.services.DatabaseService;
 
 
@@ -26,6 +24,7 @@ public class CategoriesActivity extends Activity {
 		super.onCreate(savedInstanceState);
 		setContentView(R.layout.categories_layout);
 		
+		final CategoriesActivity ma = this;
 		this.dbService = new DatabaseService(this);
 		
 		this.catList = (ListView) findViewById(R.id.cats_list);
@@ -33,7 +32,9 @@ public class CategoriesActivity extends Activity {
 			@SuppressWarnings("unchecked")
 			@Override
 			public boolean onItemLongClick(AdapterView<?> a, View v, int position, long id2) {
-				
+				CategoryDialog catDial = new CategoryDialog(v.getContext(), ma,
+							Definitions.MODE_MOD, "1");
+				catDial.show();
 				return true;
 			}
 		});
@@ -42,7 +43,9 @@ public class CategoriesActivity extends Activity {
 		btnAdd.setOnClickListener(new OnClickListener() {
 			@Override
 			public void onClick(View v) {
-				
+				CategoryDialog catDial = new CategoryDialog(v.getContext(), ma,
+							Definitions.MODE_CRE, null);
+				catDial.show();
 			}
 		});
 		
@@ -55,31 +58,5 @@ public class CategoriesActivity extends Activity {
 				new String[] { "label", "id" }, new int[] {
 						R.id.cat_label, R.id.cat_id });
 		catList.setAdapter(mSchedule);
-	}
-	
-	@Override
-	public boolean onCreateOptionsMenu(Menu menu) {
-		getMenuInflater().inflate(R.menu.cats_activity, menu);
-		return true;
-	}
-	
-	public boolean onOptionsItemSelected(MenuItem item) {
-		Intent myIntent = null;
-		switch (item.getItemId()) {
-		case R.id.menu_list:
-			myIntent = new Intent(this, FeeListActivity.class);
-			startActivityForResult(myIntent, 0);
-			return true;
-		case R.id.menu_graph:
-			myIntent = new Intent(this, GraphActivity.class);
-			startActivityForResult(myIntent, 0);
-			return true;
-		case R.id.menu_stats:
-			myIntent = new Intent(this, StatsActivity.class);
-			startActivityForResult(myIntent, 0);
-			return true;
-		default:
-			return false;
-		}
 	}
 }
