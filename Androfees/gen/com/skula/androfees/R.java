@@ -62,10 +62,10 @@ public final class R {
         public static final int list_total=0x7f080021;
         public static final int location=0x7f08001b;
         public static final int menu_categories=0x7f080039;
-        public static final int menu_graph=0x7f080035;
-        public static final int menu_list=0x7f080038;
-        public static final int menu_pw=0x7f080037;
-        public static final int menu_stats=0x7f080036;
+        public static final int menu_graph=0x7f080036;
+        public static final int menu_list=0x7f080035;
+        public static final int menu_pw=0x7f080038;
+        public static final int menu_stats=0x7f080037;
         public static final int percent=0x7f080009;
         public static final int pwError=0x7f080032;
         public static final int table=0x7f080034;
@@ -92,9 +92,10 @@ public final class R {
         public static final int stats_layout=0x7f03000a;
     }
     public static final class menu {
-        public static final int graph_activity=0x7f070000;
-        public static final int list_activity=0x7f070001;
-        public static final int stats_activity=0x7f070002;
+        public static final int cats_activity=0x7f070000;
+        public static final int graph_activity=0x7f070001;
+        public static final int list_activity=0x7f070002;
+        public static final int stats_activity=0x7f070003;
     }
     public static final class string {
         public static final int app_name=0x7f040000;

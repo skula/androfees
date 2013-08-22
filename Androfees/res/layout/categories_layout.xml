@@ -1,25 +1,33 @@
 <?xml version="1.0" encoding="utf-8"?>
 <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
     android:layout_width="fill_parent"
-    android:layout_height="wrap_content"
-    android:orientation="horizontal" >
+    android:layout_height="fill_parent"
+    android:orientation="vertical" >
 
-	<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
-		android:orientation="horizontal" android:layout_width="fill_parent"
+	<LinearLayout
+		android:orientation="horizontal" 
+		android:layout_width="fill_parent"
 		android:layout_height="wrap_content">
-		<TextView android:layout_width="wrap_content"
-			android:layout_height="60px" android:background="#006fa4"
-			android:textColor="#ffffff" android:textStyle="bold"
-			android:textSize="24px" android:text="Liste des catégories" android:gravity="center" />
 		<TextView
-			android:id="@+id/cats_btnAdd"
-			android:layout_width="wrap_content"
-			android:layout_height="wrap_content"
-			android:layout_marginLeft="10px"
-			android:textColor="#6a6a6a"
-			android:textSize="22px"
-			android:textStyle="bold" 
-			android:text="+"/>
+            android:layout_width="700px"
+            android:layout_height="70px"
+            android:background="#006fa4"
+            android:gravity="center"
+            android:text="Liste des catégories"
+            android:textColor="#ffffff"
+            android:textSize="30px"
+            android:textStyle="bold" />
+		<TextView
+            android:id="@+id/cats_btnAdd"
+            android:layout_width="99px"
+            android:layout_height="70px"
+            android:background="#006fa4"
+            android:gravity="center"
+            android:text="+"
+            android:textColor="#ffffff"
+            android:textSize="28px"
+            android:textStyle="bold" 
+            android:layout_marginLeft="1px"/>
 	</LinearLayout>		
 	
 	<ListView android:id="@+id/cats_list" android:layout_width="fill_parent"

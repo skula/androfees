@@ -1,7 +1,10 @@
 package com.skula.androfees;
 
 import android.app.Activity;
+import android.content.Intent;
 import android.os.Bundle;
+import android.view.Menu;
+import android.view.MenuItem;
 import android.view.View;
 import android.view.View.OnClickListener;
 import android.widget.AdapterView;
@@ -52,5 +55,31 @@ public class CategoriesActivity extends Activity {
 				new String[] { "label", "id" }, new int[] {
 						R.id.cat_label, R.id.cat_id });
 		catList.setAdapter(mSchedule);
+	}
+	
+	@Override
+	public boolean onCreateOptionsMenu(Menu menu) {
+		getMenuInflater().inflate(R.menu.cats_activity, menu);
+		return true;
+	}
+	
+	public boolean onOptionsItemSelected(MenuItem item) {
+		Intent myIntent = null;
+		switch (item.getItemId()) {
+		case R.id.menu_list:
+			myIntent = new Intent(this, FeeListActivity.class);
+			startActivityForResult(myIntent, 0);
+			return true;
+		case R.id.menu_graph:
+			myIntent = new Intent(this, GraphActivity.class);
+			startActivityForResult(myIntent, 0);
+			return true;
+		case R.id.menu_stats:
+			myIntent = new Intent(this, StatsActivity.class);
+			startActivityForResult(myIntent, 0);
+			return true;
+		default:
+			return false;
+		}
 	}
 }
