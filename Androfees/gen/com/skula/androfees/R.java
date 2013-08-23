@@ -19,7 +19,6 @@ public final class R {
         public static final int ic_launcher=0x7f020001;
     }
     public static final class id {
-        public static final int ScrollView11=0x7f080036;
         public static final int amount=0x7f08001a;
         public static final int btnPw0=0x7f080030;
         public static final int btnPw1=0x7f080027;
@@ -61,16 +60,17 @@ public final class R {
         public static final int list_previousMonth=0x7f08001e;
         public static final int list_total=0x7f080021;
         public static final int location=0x7f08001b;
-        public static final int menu_categories=0x7f08003c;
-        public static final int menu_graph=0x7f080039;
-        public static final int menu_list=0x7f080038;
-        public static final int menu_pw=0x7f08003b;
-        public static final int menu_stats=0x7f08003a;
+        public static final int menu_categories=0x7f08003b;
+        public static final int menu_cats=0x7f08003c;
+        public static final int menu_graph=0x7f080038;
+        public static final int menu_list=0x7f080037;
+        public static final int menu_pw=0x7f08003a;
+        public static final int menu_stats=0x7f080039;
         public static final int percent=0x7f080009;
         public static final int pwError=0x7f080032;
         public static final int stats_btnSearch=0x7f080035;
         public static final int stats_count=0x7f080034;
-        public static final int stats_table=0x7f080037;
+        public static final int stats_table=0x7f080036;
         public static final int stats_unit=0x7f080033;
         public static final int timeUnit=0x7f08000f;
         public static final int typeGraph=0x7f08000c;

@@ -56,21 +56,18 @@
         android:background="#006fa4" 
         android:layout_marginTop="2px"/>
 	
-    <ScrollView
-        android:id="@+id/ScrollView11"
-        android:layout_width="fill_parent"
-        android:layout_height="wrap_content"
-        android:fillViewport="true" >
+
 
         <LinearLayout
-            android:layout_width="fill_parent"
-            android:layout_height="wrap_content">
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+             android:fillViewport="true">
 
             <TableLayout
                 android:id="@+id/stats_table"
-                android:layout_width="fill_parent"
+                android:layout_width="wrap_content"
                 android:layout_height="wrap_content" />
         </LinearLayout>
-    </ScrollView>
+
 
 </LinearLayout>

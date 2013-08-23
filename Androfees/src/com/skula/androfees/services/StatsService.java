@@ -5,15 +5,19 @@ import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
 
+import android.app.ActionBar.LayoutParams;
 import android.content.Context;
+import android.view.Gravity;
 import android.view.LayoutInflater;
 import android.view.View;
+import android.widget.LinearLayout;
 import android.widget.TableRow;
 import android.widget.TextView;
 
 import com.skula.androfees.R;
 import com.skula.androfees.models.StatsCell;
 import com.skula.androfees.models.StatsRow;
+import com.skula.androfees.models.StatsTable;
 
 public class StatsService {
 	
@@ -22,32 +26,39 @@ public class StatsService {
 
 		// bouchon
 		Map<String, Double[]> map = new HashMap<String, Double[]>();
-		map.put("Courses", new Double[] { 1.0, 2.0, 3.0 });
-		map.put("Sorties", new Double[] { 10.0, 20.0, 30.0 });
+		map.put("Courses", new Double[] { 1.0, 2000.0, 3.0, 4.0, 5.0,1.0, 2.0, 3.0, 4.0, 5.0, 1.0, 2.0, 3.0, 4.0, 5.0 });
+		map.put("Sorties", new Double[] { 10.0, 20.0, 30.0, 40.0, 50.0, 1.0, 2.0, 3.0, 4.0, 5.0, 1.0, 2.0, 3.0, 4.0, 5.0 });	
+		map.put("Bar", new Double[] { 10.0, 20.0, 30.0, 40.0, 50.0, 1.0, 2.0, 3.0, 4.0, 5.0, 1.0, 2.0, 3.0, 4.0, 5.0 });	
+		map.put("Autre", new Double[] { 10.0, 20.0, 30.0, 40.0, 50.0, 1.0, 2.0, 3.0, 4.0, 5.0, 1.0, 2.0, 3.0, 4.0, 5.0 });	
+		map.put("Egarette", new Double[] { 10.0, 20.0, 30.0, 40.0, 50.0, 1.0, 2.0, 3.0, 4.0, 5.0, 1.0, 2.0, 3.0, 4.0, 5.0 });	
+		map.put("Plop", new Double[] { 10.0, 20.0, 30.0, 40.0, 50.0, 1.0, 2.0, 3.0, 4.0, 5.0, 1.0, 2.0, 3.0, 4.0, 5.0 });	
+		map.put("LOL", new Double[] { 10.0, 20.0, 30.0, 40.0, 50.0, 1.0, 2.0, 3.0, 4.0, 5.0, 1.0, 2.0, 3.0, 4.0, 5.0 });	
+		map.put("Prout", new Double[] { 10.0, 20.0, 30.0, 40.0, 50.0, 1.0, 2.0, 3.0, 4.0, 5.0, 1.0, 2.0, 3.0, 4.0, 5.0 });	
+		StatsTable st = new StatsTable(unit, count, map);
 		
-		// headers
-		res.add(buildHeader(ctx, infl, unit, count));
+		// header
+		res.add(buildHeader(ctx, infl, st.getHeader()));
 		
 		// body
-		List<StatsRow> sRows = StatsRow.getRows(map);
-		for(TableRow tr : buildBody(ctx, infl, sRows)){
+		for(TableRow tr : buildBody(ctx, infl, st.getBody())){
 			res.add(tr);
 		}
 		
 		// footer
-		res.add(buildFooter(ctx, infl, sRows));
+		res.add(buildFooter(ctx, infl, st.getFooter()));
 		
 		return res;
 	}
 	
-	private static TableRow buildHeader(Context ctx, LayoutInflater inflater, String unit, int count){
+	private static TableRow buildHeader(Context ctx, LayoutInflater inflater, List<String> headers){
 		TableRow res = new TableRow(ctx);
 		res.addView(new TextView(ctx));
 		res.addView(new TextView(ctx));
 		
-		for(int i=1; i<=count; i++){
+		for(String h: headers){
 			TextView t2 = new TextView(ctx);
-			t2.setText("u"+i);
+			t2.setText(h);
+			t2.setGravity(Gravity.CENTER);
 			res.addView(t2);
 		}
 		
@@ -64,6 +75,7 @@ public class StatsService {
 			// titre categorie
 			t1 = new TextView(ctx);
 			t1.setText(sr.getLabel());
+			t1.setGravity(Gravity.CENTER_VERTICAL);
 			tr.addView(t1);
 
 			// sum & percent
@@ -79,9 +91,9 @@ public class StatsService {
 			for (StatsCell c : sr.getCells()) {
 				v = inflater.inflate(R.layout.cell_layout, null);
 				TextView value = (TextView) v.findViewById(R.id.value);
-				value.setText(castDouble(c.getValue())+"");
+				value.setText(castDouble(c.getValue())+"€");
 				TextView TextView = (TextView) v.findViewById(R.id.percent);
-				TextView.setText(castDouble(c.getPercent())+"");
+				TextView.setText(castDouble(c.getPercent())+"%");
 				TextView increase = (TextView) v.findViewById(R.id.increase);
 				increase.setText(c.isIncrease()+"");
 				tr.addView(v);
@@ -92,10 +104,29 @@ public class StatsService {
 		return res;
 	}
 	
-	private static TableRow buildFooter(Context ctx, LayoutInflater inflater, List<StatsRow> sRows){
+	private static TableRow buildFooter(Context ctx, LayoutInflater inflater, StatsRow footer){
 		TableRow res = new TableRow(ctx);	
 		res.addView(new TextView(ctx));
-		res.addView(new TextView(ctx));
+		
+		View v2 = inflater.inflate(R.layout.cell_layout, null);
+		TextView sum = (TextView) v2.findViewById(R.id.value);
+		sum.setText(castDouble(footer.getSum())+"");
+		TextView percent = (TextView) v2.findViewById(R.id.percent);
+		percent.setText(castDouble(footer.getPercent())+"");
+		
+		res.addView(v2);
+		View v = null;
+		// cellules
+		for (StatsCell c : footer.getCells()) {
+			v = inflater.inflate(R.layout.cell_layout, null);
+			TextView value = (TextView) v.findViewById(R.id.value);
+			value.setText(castDouble(c.getValue())+"€");
+			TextView TextView = (TextView) v.findViewById(R.id.percent);
+			TextView.setText(castDouble(c.getPercent())+"%");
+			TextView increase = (TextView) v.findViewById(R.id.increase);
+			increase.setText(c.isIncrease()+"");
+			res.addView(v);
+		}
 		
 		return res;
 	}

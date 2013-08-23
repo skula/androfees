@@ -2,22 +2,19 @@
 <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
     android:layout_width="wrap_content"
     android:layout_height="wrap_content"
-    android:orientation="horizontal" >
+    android:orientation="vertical" >
 
     <View
-        android:layout_width="2px"
-        android:layout_height="wrap_content"
+        android:layout_width="wrap_content"
+        android:layout_height="2px"
         android:background="#000000" />
 
     <LinearLayout
-        android:layout_width="100px"
+        android:layout_width="wrap_content"
         android:layout_height="wrap_content"
+        android:layout_marginLeft="10px"
+        android:gravity="center"
         android:orientation="vertical" >
-
-        <View
-            android:layout_width="wrap_content"
-            android:layout_height="2px"
-            android:background="#000000" />
 
         <TextView
             android:id="@+id/value"
@@ -26,11 +23,6 @@
             android:textSize="16sp"
             android:textStyle="bold" />
 
-        <View
-            android:layout_width="wrap_content"
-            android:layout_height="2px"
-            android:background="#000000" />
-
         <TextView
             android:id="@+id/percent"
             android:layout_width="wrap_content"
@@ -38,25 +30,15 @@
             android:textSize="16sp"
             android:textStyle="bold" />
 
-        <View
-            android:layout_width="wrap_content"
-            android:layout_height="2px"
-            android:background="#000000" />
-
         <TextView
             android:id="@+id/increase"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content" />
-
-        <View
-            android:layout_width="wrap_content"
-            android:layout_height="2px"
-            android:background="#000000" />
     </LinearLayout>
-    
+
     <View
-        android:layout_width="2px"
-        android:layout_height="wrap_content"
+        android:layout_width="wrap_content"
+        android:layout_height="2px"
         android:background="#000000" />
 
 </LinearLayout>
