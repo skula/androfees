@@ -1,20 +1,23 @@
 package com.skula.androfees;
 
-import java.util.HashMap;
-import java.util.Map;
+import java.util.List;
 
-import com.skula.androfees.models.*;
 import android.app.Activity;
 import android.content.Context;
 import android.os.Bundle;
 import android.view.LayoutInflater;
 import android.view.View;
+import android.widget.EditText;
+import android.widget.Spinner;
 import android.widget.TableLayout;
 import android.widget.TableRow;
 import android.widget.TextView;
 
-public class StatsActivity extends Activity {
+import com.skula.androfees.services.StatsService;
 
+public class StatsActivity extends Activity {
+	private Spinner units;
+	private EditText unitCount;
 	private TableLayout table;
 
 	@Override
@@ -22,52 +25,23 @@ public class StatsActivity extends Activity {
 		super.onCreate(savedInstanceState);
 		setContentView(R.layout.stats_layout);
 
-		this.table = (TableLayout) findViewById(R.id.table);
-		LayoutInflater inflater = (LayoutInflater) this
-				.getSystemService(Context.LAYOUT_INFLATER_SERVICE);
+		this.units = (Spinner) findViewById(R.id.stats_unit);
+		this.unitCount = (EditText) findViewById(R.id.stats_count);	
+		this.table = (TableLayout) findViewById(R.id.stats_table);
 
-		Map<String, Double[]> map = new HashMap<String, Double[]>();
-		map.put("Courses", new Double[] { 1.0, 2.0, 3.0 });
-		map.put("Sorties", new Double[] { 10.0, 20.0, 30.0 });
-
-		// headers
-
-		// categories
-		TextView t1 = null;
-		for (StatsRow r : StatsTable.getRows(map)) {
-			TableRow row = new TableRow(this);
-
-			// titre categorie
-			t1 = new TextView(this);
-			t1.setText("Titre");
-			row.addView(t1);
-
-			// sum & percent
-			View v2 = inflater.inflate(R.layout.cell_layout, null);
-			TextView sum = (TextView) v2.findViewById(R.id.value);
-			sum.setText(castDouble(r.getSum())+"");
-			TextView percent = (TextView) v2.findViewById(R.id.percent);
-			percent.setText(castDouble(r.getPercent())+"");
-
-			row.addView(v2);
-			View v = null;
-			// cellules
-			for (StatsCell c : r.getCells()) {
-				v = inflater.inflate(R.layout.cell_layout, null);
-				TextView value = (TextView) v.findViewById(R.id.value);
-				value.setText(castDouble(c.getValue())+"");
-				TextView TextView = (TextView) v.findViewById(R.id.percent);
-				TextView.setText(castDouble(c.getPercent())+"");
-				TextView increase = (TextView) v.findViewById(R.id.increase);
-				increase.setText(c.isIncrease()+"");
-				row.addView(v);
+		TextView btnSearch = (TextView) findViewById(R.id.stats_btnSearch);
+		btnSearch.setOnClickListener(new View.OnClickListener() {
+			public void onClick(View v) {
+				String u = (String) units.getSelectedItem();
+				String c = unitCount.getText().toString();
+				//if(!c.equals("")){
+					LayoutInflater inflater = (LayoutInflater) getSystemService(Context.LAYOUT_INFLATER_SERVICE);
+					List<TableRow> list = StatsService.calculate(v.getContext(), inflater, "", 3);//Integer.valueOf(c));
+					for(TableRow tr : list){
+						table.addView(tr);
+					}					
+				//}
 			}
-
-			table.addView(row);
-		}
-	}
-	
-	private static double castDouble(double in){
-		return (int) (in*100)/100.0;
+		});
 	}
 }
